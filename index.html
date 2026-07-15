@@ -3,255 +3,345 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Patrick Edom — Python Automation Specialist</title>
+<title>Patrick Edom — Portfolio</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
 
   :root{
-    --ink:#0F1720;
-    --panel:#161F2B;
-    --panel-2:#1C2733;
-    --paper:#EDEAE1;
-    --amber:#E8A33D;
-    --teal:#4C9A94;
-    --muted:#8B97A5;
-    --rule: rgba(237,234,225,0.12);
+    --cream:#F3F1EA;
+    --black:#111111;
+    --panel:#1A1A1A;
+    --line: rgba(17,17,17,0.12);
+    --muted:#6B6B63;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
   body{
-    background:var(--ink);
-    color:var(--paper);
+    background:var(--cream);
+    color:var(--black);
     font-family:'Inter',sans-serif;
     line-height:1.6;
-    -webkit-font-smoothing:antialiased;
   }
-  .mono{font-family:'JetBrains Mono', monospace;}
-  a{color:inherit;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
 
-  ::selection{background:var(--amber); color:var(--ink);}
+  /* nav */
+  .topbar{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 24px; border-bottom:1px solid var(--line);
+    position:sticky; top:0; background:var(--cream); z-index:10;
+  }
+  .topbar .mark{font-weight:800; font-size:15px; letter-spacing:-0.01em;}
+  .topbar nav{display:flex; gap:22px; font-size:13px;}
+  .topbar nav a{color:var(--black); text-decoration:none; opacity:0.6;}
+  .topbar nav a:hover{opacity:1;}
 
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  /* hero */
+  .hero-title{
+    font-size:56px; font-weight:800; letter-spacing:-0.03em; padding:48px 0 28px;
   }
+  .photo-block{
+    width:100%; aspect-ratio:4/3; border-radius:4px; overflow:hidden; margin-bottom:36px;
+    background:var(--black); position:relative;
+  }
+  .photo-block svg{width:100%; height:100%; display:block;}
 
-  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
-  header.nav{
-    position:sticky; top:0; z-index:50;
-    backdrop-filter:blur(8px);
-    background:rgba(15,23,32,0.85);
-    border-bottom:1px solid var(--rule);
-  }
-  .nav-inner{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 24px; max-width:920px; margin:0 auto;
-  }
-  .logo{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:15px; letter-spacing:0.02em;}
-  .logo span{color:var(--amber);}
-  nav.links{display:flex; gap:28px; font-size:13px;}
-  nav.links a{
-    text-decoration:none; color:var(--muted); font-family:'JetBrains Mono',monospace;
-    letter-spacing:0.03em; transition:color 0.2s;
-  }
-  nav.links a:hover, nav.links a:focus-visible{color:var(--paper);}
+  .hi{font-size:26px; font-weight:800; margin-bottom:16px;}
+  .intro p{font-size:16px; color:#333; margin-bottom:16px; max-width:600px;}
+  .intro .note{font-size:14px; color:var(--muted); font-style:italic;}
 
-  .hero{padding:88px 0 64px;}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:13px;
-    letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px;
-    display:flex; align-items:center; gap:10px;
-  }
-  .dot{width:7px; height:7px; border-radius:50%; background:var(--teal); animation:pulse 2s infinite;}
-  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.3;}}
-
-  h1{
-    font-family:'Inter',sans-serif; font-weight:700; font-size:44px; line-height:1.15;
-    letter-spacing:-0.02em; margin-bottom:20px; max-width:680px;
-  }
-  h1 .accent{color:var(--amber);}
-  .lede{color:var(--muted); font-size:17px; max-width:560px; margin-bottom:36px;}
-
-  .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px;}
   .btn{
-    font-family:'JetBrains Mono',monospace; font-size:13px; padding:12px 20px;
-    border-radius:3px; text-decoration:none; letter-spacing:0.02em;
-    transition:transform 0.15s, opacity 0.15s; display:inline-block;
+    display:inline-flex; align-items:center; gap:8px;
+    background:transparent; border:1px solid var(--black); color:var(--black);
+    padding:11px 20px; border-radius:24px; font-size:14px; font-weight:500;
+    text-decoration:none; margin-top:20px;
   }
-  .btn:hover{transform:translateY(-1px);}
-  .btn-primary{background:var(--amber); color:var(--ink); font-weight:700;}
-  .btn-ghost{border:1px solid var(--rule); color:var(--paper);}
+  .btn:hover{background:var(--black); color:var(--cream);}
 
-  .terminal{
-    background:var(--panel); border:1px solid var(--rule); border-radius:8px;
-    overflow:hidden; box-shadow:0 20px 60px -20px rgba(0,0,0,0.6);
+  /* section labels */
+  .section{padding:56px 0; border-top:1px solid var(--line);}
+  .eyebrow{
+    font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;
+    margin-bottom:8px; font-weight:600;
   }
-  .term-bar{
-    display:flex; align-items:center; gap:8px; padding:12px 16px;
-    background:var(--panel-2); border-bottom:1px solid var(--rule);
-  }
-  .term-bar .dotb{width:10px; height:10px; border-radius:50%;}
-  .term-bar .r{background:#E8746A;} .term-bar .y{background:#E8C13D;} .term-bar .g{background:#4CA968;}
-  .term-title{margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted);}
-  .term-body{padding:22px 20px; font-family:'JetBrains Mono',monospace; font-size:13.5px;}
-  .term-body .line{margin-bottom:8px; color:var(--muted);}
-  .term-body .prompt{color:var(--teal);}
-  .term-body .out{color:var(--paper);}
-  .cursor{display:inline-block; width:8px; height:15px; background:var(--amber); animation:blink 1s step-end infinite; vertical-align:middle; margin-left:2px;}
-  @keyframes blink{50%{opacity:0;}}
+  .section-title{font-size:30px; font-weight:800; letter-spacing:-0.01em; margin-bottom:32px;}
 
-  section{padding:64px 0; border-top:1px solid var(--rule);}
-  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:36px;}
-  .index{font-family:'JetBrains Mono',monospace; color:var(--amber); font-size:13px;}
-  h2{font-size:26px; font-weight:700; letter-spacing:-0.01em;}
-
-  .skill-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;}
+  /* skills grid = black cards */
+  .skill-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   .skill-card{
-    background:var(--panel); border:1px solid var(--rule); border-radius:6px; padding:20px;
+    background:var(--black); border-radius:6px; overflow:hidden; color:var(--cream);
   }
-  .skill-card h3{font-family:'JetBrains Mono',monospace; font-size:14px; color:var(--amber); margin-bottom:10px; letter-spacing:0.01em;}
-  .skill-card p{color:var(--muted); font-size:13.5px;}
-
-  .service{
-    display:grid; grid-template-columns:40px 1fr; gap:16px; padding:20px 0;
-    border-bottom:1px solid var(--rule);
+  .skill-art{
+    aspect-ratio:16/10; display:flex; align-items:center; justify-content:center;
+    padding:16px;
   }
-  .service:last-child{border-bottom:none;}
-  .service .num{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:13px;}
-  .service h3{font-size:16px; margin-bottom:6px;}
-  .service p{color:var(--muted); font-size:14px;}
-
-  .cert-list{display:flex; flex-direction:column; gap:0;}
-  .cert{
-    display:flex; justify-content:space-between; align-items:center; gap:16px;
-    padding:16px 0; border-bottom:1px solid var(--rule); flex-wrap:wrap;
+  .skill-art svg{width:100%; height:100%;}
+  .skill-label{
+    padding:14px 16px; background:var(--cream); color:var(--black);
+    font-weight:700; font-size:15px; display:flex; align-items:center; gap:8px;
   }
-  .cert:last-child{border-bottom:none;}
-  .cert-name{font-weight:600; font-size:14.5px;}
-  .cert-issuer{color:var(--muted); font-size:13px; font-family:'JetBrains Mono',monospace;}
 
-  .strip{
-    background:var(--panel); border:1px solid var(--rule); border-radius:8px; padding:24px;
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:20px;
+  /* work / project gallery */
+  .work-grid{display:flex; flex-direction:column; gap:16px;}
+  .work-card{
+    border-radius:6px; overflow:hidden; border:1px solid var(--line);
+    background:#fff;
   }
-  .strip .stat-label{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;}
-  .strip .stat-val{font-size:15px; font-weight:600;}
+  .work-art{aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; padding:0;}
+  .work-art svg{width:100%; height:100%; display:block;}
+  .work-info{padding:16px 18px;}
+  .work-info h3{font-size:16px; font-weight:700; margin-bottom:4px;}
+  .work-info p{font-size:13.5px; color:var(--muted);}
 
-  .contact-box{
-    background:linear-gradient(135deg, var(--panel), var(--panel-2));
-    border:1px solid var(--rule); border-radius:8px; padding:40px; text-align:left;
+  /* services */
+  .service-card{
+    border:1px solid var(--line); border-radius:10px; padding:28px; margin-bottom:18px;
   }
-  .contact-box h2{margin-bottom:12px;}
-  .contact-box p{color:var(--muted); margin-bottom:24px; max-width:440px;}
+  .service-num{font-size:13px; color:var(--muted); font-weight:700; margin-bottom:14px;}
+  .service-card h3{font-size:22px; font-weight:800; margin-bottom:12px;}
+  .service-card p{font-size:14.5px; color:#333; margin-bottom:16px;}
+  .service-price{font-size:14px; margin-bottom:12px;}
+  .service-price b{font-weight:700;}
+  .service-features{list-style:none; font-size:14px; color:#333;}
+  .service-features li{padding-left:18px; position:relative; margin-bottom:6px;}
+  .service-features li::before{content:"•"; position:absolute; left:0; color:var(--black);}
 
-  footer{padding:32px 0 48px; color:var(--muted); font-size:12.5px; font-family:'JetBrains Mono',monospace;}
+  /* certs strip */
+  .cert-row{display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid var(--line); font-size:14.5px;}
+  .cert-row:last-child{border-bottom:none;}
+  .cert-row span:last-child{color:var(--muted); font-size:13px;}
+  .cert-row a.cert-link{
+    color:var(--black); text-decoration:none; font-weight:600;
+    display:flex; align-items:center; gap:6px;
+  }
+  .cert-row a.cert-link:hover{text-decoration:underline;}
+  .cert-row a.cert-link::after{content:"↗"; font-size:12px; color:var(--muted);}
 
-  @media (max-width:640px){
-    h1{font-size:32px;}
-    .hero{padding:64px 0 48px;}
-    nav.links{gap:16px; font-size:12px;}
+  footer{padding:40px 0 60px; text-align:center; color:var(--muted); font-size:13px;}
+
+  @media(max-width:520px){
+    .hero-title{font-size:38px;}
+    .skill-grid{grid-template-columns:1fr 1fr;}
   }
 </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <div class="logo">patrick<span>@</span>automate</div>
-    <nav class="links">
-      <a href="#work">services</a>
-      <a href="#certs">certs</a>
-      <a href="#contact">contact</a>
-    </nav>
-  </div>
-</header>
+<div class="topbar">
+  <div class="mark">Patrick Edom</div>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
 
 <div class="wrap">
-  <section class="hero" style="border-top:none;">
-    <div class="eyebrow"><span class="dot"></span> Available for new projects</div>
-    <h1>I turn <span class="accent">repetitive work</span> into scripts that run themselves.</h1>
-    <p class="lede">Patrick Edom — Python developer specializing in automation, scripting, and data processing. Based in West Africa (GMT+1), with full working-hours overlap for UK and EU clients.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#contact">Start a project</a>
-      <a class="btn btn-ghost" href="#work">See what I build</a>
-    </div>
+  <div class="hero-title">Portfolio</div>
 
-    <div class="terminal">
-      <div class="term-bar">
-        <span class="dotb r"></span><span class="dotb y"></span><span class="dotb g"></span>
-        <span class="term-title">automate.py</span>
-      </div>
-      <div class="term-body">
-        <div class="line"><span class="prompt">$</span> <span class="out">python automate.py --task "3hrs of manual data entry"</span></div>
-        <div class="line">→ scanning task...</div>
-        <div class="line">→ writing script...</div>
-        <div class="line">→ done in 4.2s. task now runs on autopilot<span class="cursor"></span></div>
-      </div>
-    </div>
-  </section>
+  <div class="photo-block">
+    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#111111"/>
+      <circle cx="330" cy="40" r="70" fill="#F3F1EA"/>
+      <circle cx="60" cy="260" r="90" fill="#F3F1EA"/>
+      <text x="200" y="160" font-family="JetBrains Mono, monospace" font-size="20" fill="#E8A33D" text-anchor="middle" font-weight="700">$ python automate.py</text>
+    </svg>
+  </div>
 
-  <section id="work">
-    <div class="section-head"><span class="index">01</span><h2>What I build</h2></div>
-    <div class="service">
-      <div class="num">A</div>
-      <div><h3>Web scraping</h3><p>Pull structured data from websites automatically — prices, listings, contacts, or content — delivered clean and ready to use.</p></div>
-    </div>
-    <div class="service">
-      <div class="num">B</div>
-      <div><h3>Excel & CSV automation</h3><p>Merge, clean, reformat, and generate reports from spreadsheets without touching them by hand.</p></div>
-    </div>
-    <div class="service">
-      <div class="num">C</div>
-      <div><h3>Task bots & scripts</h3><p>File organization, scheduled emails, automated downloads — small scripts that quietly remove hours from your week.</p></div>
-    </div>
-    <div class="service">
-      <div class="num">D</div>
-      <div><h3>Data cleaning & processing</h3><p>Turn messy, inconsistent data into something usable — validated, structured, and formatted for your workflow.</p></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-head"><span class="index">02</span><h2>Stack</h2></div>
-    <div class="skill-grid">
-      <div class="skill-card"><h3>PYTHON</h3><p>Core language — scripting, automation, data processing, working with APIs and LLMs.</p></div>
-      <div class="skill-card"><h3>JAVASCRIPT</h3><p>Front-end logic and interactivity for full stack projects.</p></div>
-      <div class="skill-card"><h3>HTML / CSS</h3><p>Building and structuring clean, responsive interfaces.</p></div>
-      <div class="skill-card"><h3>PHP</h3><p>Server-side scripting for web-based tools and fixes.</p></div>
-    </div>
-  </section>
-
-  <section id="certs">
-    <div class="section-head"><span class="index">03</span><h2>Certifications</h2></div>
-    <div class="cert-list">
-      <div class="cert"><span class="cert-name">Python</span><span class="cert-issuer">Mimo · 2025</span></div>
-      <div class="cert"><span class="cert-name">Python AI Development</span><span class="cert-issuer">Mimo · 2025</span></div>
-      <div class="cert"><span class="cert-name">IT Automation with Python</span><span class="cert-issuer">Google · 2026</span></div>
-      <div class="cert"><span class="cert-name">AI Career Essentials</span><span class="cert-issuer">ALX · 2024</span></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-head"><span class="index">04</span><h2>Availability</h2></div>
-    <div class="strip">
-      <div><div class="stat-label">Hours</div><div class="stat-val">9AM – 5PM WAT</div></div>
-      <div><div class="stat-label">Timezone overlap</div><div class="stat-val">Full UK / EU coverage</div></div>
-      <div><div class="stat-label">Response time</div><div class="stat-val">Within a few hours</div></div>
-      <div><div class="stat-label">Currently learning</div><div class="stat-val">Full Stack Dev (freeCodeCamp)</div></div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="section-head"><span class="index">05</span><h2>Let's automate something</h2></div>
-    <div class="contact-box">
-      <h2 style="border:none; padding:0;">Tell me what's eating your time.</h2>
-      <p>Send a short note about the task you want automated. I'll tell you honestly whether Python can solve it before anything's agreed.</p>
-      <a class="btn btn-primary" href="mailto:edompatrick24@gmail.com">Email Me</a>
-    </div>
-  </section>
-
-  <footer>
-    © 2026 Patrick Edom — Python Automation Specialist
-  </footer>
+  <div class="intro">
+    <div class="hi">Hi, I'm Patrick</div>
+    <p>I write Python scripts that automate repetitive work — web scraping, data cleaning, and spreadsheet automation. I'm also building out full stack skills (JavaScript, HTML/CSS, PHP) through freeCodeCamp.</p>
+    <p class="note">I focus on clean, working code and honest scoping — if a task isn't a good fit for Python, I'll say so before you order.</p>
+    <a class="btn mono" href="mailto:edompatrick24@gmail.com">✉ Get in touch</a>
+  </div>
 </div>
+
+<div class="section">
+  <div class="wrap">
+    <div class="eyebrow">Skills</div>
+    <div class="section-title">What I work with</div>
+    <div class="skill-grid">
+
+      <div class="skill-card">
+        <div class="skill-art">
+          <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#111"/>
+            <circle cx="150" cy="20" r="35" fill="#F3F1EA"/>
+            <circle cx="40" cy="100" r="45" fill="#F3F1EA"/>
+          </svg>
+        </div>
+        <div class="skill-label">🐍 Python</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-art">
+          <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#111"/>
+            <g stroke="#F3F1EA" stroke-width="3" fill="none">
+              <rect x="20" y="30" width="24" height="24"/>
+              <rect x="50" y="30" width="24" height="24"/>
+              <rect x="80" y="30" width="24" height="24"/>
+              <rect x="110" y="30" width="24" height="24"/>
+              <rect x="65" y="60" width="24" height="24"/>
+            </g>
+          </svg>
+        </div>
+        <div class="skill-label">⚙ Automation</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-art">
+          <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#111"/>
+            <path d="M20 90 Q60 20 100 90 T180 90" stroke="#F3F1EA" stroke-width="4" fill="none"/>
+          </svg>
+        </div>
+        <div class="skill-label">🔎 Web Scraping</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-art">
+          <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#111"/>
+            <circle cx="50" cy="30" r="10" fill="#F3F1EA"/>
+            <circle cx="90" cy="30" r="10" fill="#F3F1EA"/>
+            <circle cx="130" cy="30" r="10" fill="#F3F1EA"/>
+            <circle cx="70" cy="70" r="10" fill="#F3F1EA"/>
+            <circle cx="110" cy="70" r="10" fill="#F3F1EA"/>
+            <circle cx="150" cy="70" r="10" fill="#F3F1EA"/>
+          </svg>
+        </div>
+        <div class="skill-label">📊 Data Processing</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="section" id="work">
+  <div class="wrap">
+    <div class="eyebrow">My Work</div>
+    <div class="section-title">Sample projects</div>
+    <div class="work-grid">
+
+      <div class="work-card">
+        <div class="work-art">
+          <svg viewBox="0 0 400 225"><rect width="400" height="225" fill="#161F2B"/>
+            <text x="24" y="40" font-family="JetBrains Mono, monospace" font-size="14" fill="#E8A33D">before → after</text>
+            <rect x="24" y="60" width="160" height="120" fill="#2A2118" stroke="#E8A33D"/>
+            <rect x="216" y="60" width="160" height="120" fill="#1B3330" stroke="#4C9A94"/>
+            <text x="104" y="125" font-family="Inter" font-size="13" fill="#EDEAE1" text-anchor="middle">messy data</text>
+            <text x="296" y="125" font-family="Inter" font-size="13" fill="#EDEAE1" text-anchor="middle">clean output</text>
+          </svg>
+        </div>
+        <div class="work-info">
+          <h3>Automated Data Cleaning</h3>
+          <p>Duplicate removal, formatting, validation — raw CSV to clean spreadsheet.</p>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-art">
+          <svg viewBox="0 0 400 225"><rect width="400" height="225" fill="#161F2B"/>
+            <text x="24" y="40" font-family="JetBrains Mono, monospace" font-size="14" fill="#4C9A94">scrape → structure</text>
+            <rect x="24" y="60" width="352" height="20" fill="#232F3D"/>
+            <rect x="24" y="90" width="352" height="20" fill="#232F3D"/>
+            <rect x="24" y="120" width="352" height="20" fill="#232F3D"/>
+            <rect x="24" y="150" width="240" height="20" fill="#232F3D"/>
+          </svg>
+        </div>
+        <div class="work-info">
+          <h3>Web Scraping &amp; Structuring</h3>
+          <p>Product listings pulled from a website into an organized spreadsheet.</p>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-art">
+          <svg viewBox="0 0 400 225"><rect width="400" height="225" fill="#161F2B"/>
+            <text x="24" y="40" font-family="JetBrains Mono, monospace" font-size="14" fill="#E8A33D">AI-powered</text>
+            <rect x="24" y="60" width="352" height="50" fill="#232F3D"/>
+            <text x="36" y="90" font-family="Inter" font-size="12" fill="#8B97A5">"...a long customer review paragraph..."</text>
+            <text x="200" y="135" fill="#4C9A94" font-size="18" text-anchor="middle">↓ summarize + classify</text>
+            <rect x="24" y="150" width="352" height="40" fill="#1B3330"/>
+            <text x="36" y="175" font-family="JetBrains Mono, monospace" font-size="12" fill="#EDEAE1">sentiment: negative · topic: shipping</text>
+          </svg>
+        </div>
+        <div class="work-info">
+          <h3>AI-Powered Text Automation</h3>
+          <p>Summarizing and classifying customer feedback automatically using Python + AI APIs.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="section" id="services">
+  <div class="wrap">
+    <div class="eyebrow">Services</div>
+    <div class="section-title">What I offer</div>
+
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>Quick Automate</h3>
+      <p>A focused Python script that automates one task — scraping, cleaning, or organizing data.</p>
+      <div class="service-price mono"><b>Price:</b> $20 · 3 day delivery</div>
+      <ul class="service-features">
+        <li>One working script for your exact task</li>
+        <li>Clean, readable code</li>
+        <li>Source code included</li>
+        <li>1 revision</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>Smart Automate</h3>
+      <p>A multi-step automation — scrape, clean, and export in one pipeline, with error handling so it doesn't break on messy input.</p>
+      <div class="service-price mono"><b>Price:</b> $45 · 3 day delivery</div>
+      <ul class="service-features">
+        <li>Multi-step script (extract → clean → export)</li>
+        <li>Basic error handling</li>
+        <li>Short usage guide</li>
+        <li>Also covers file &amp; system automation — batch renaming, sorting, scheduled cleanup</li>
+        <li>2 revisions</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3>AI-Powered Automation</h3>
+      <p>Automation that goes a step further with AI — summarizing text, classifying entries, or extracting insights from unstructured data using Python and AI APIs.</p>
+      <div class="service-price mono"><b>Price:</b> $60 · 4 day delivery</div>
+      <ul class="service-features">
+        <li>Script combining automation + AI processing</li>
+        <li>Handles unstructured text input</li>
+        <li>Documentation included</li>
+        <li>2 revisions</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="wrap">
+    <div class="eyebrow">Certifications</div>
+    <div class="section-title">Credentials</div>
+    <div class="cert-row"><a class="cert-link" href="https://drive.google.com/file/d/1cj4EAcq5E62WK4H5ZEx-7YAtWmUxEEJI/view?usp=drivesdk" target="_blank" rel="noopener">Google Crash Course on Python</a><span>Google · 2026</span></div>
+    <div class="cert-row"><a class="cert-link" href="https://drive.google.com/file/d/1h7EwuNgkBGafZTnNLgtmgdMdMQeix5FK/view?usp=drivesdk" target="_blank" rel="noopener">Using Python to Interact with Operating Systems</a><span>Google · 2026</span></div>
+    <div class="cert-row"><a class="cert-link" href="https://drive.google.com/file/d/11RVJ_hLT9_lRXw-_p9JE4Oydkmqm9ThQ/view?usp=drivesdk" target="_blank" rel="noopener">Python</a><span>Mimo · 2025</span></div>
+    <div class="cert-row"><a class="cert-link" href="https://drive.google.com/file/d/1-DG4HCs2bpO9eX-Zi1gEfLBJE-4B6rPt/view?usp=drivesdk" target="_blank" rel="noopener">Python AI Development</a><span>Mimo · 2025</span></div>
+    <div class="cert-row"><a class="cert-link" href="https://drive.google.com/file/d/1jxeIcXJf6vxWr3S_dvNcO9KFqpdxLp61/view?usp=drivesdk" target="_blank" rel="noopener">AI Career Essentials</a><span>ALX · 2024</span></div>
+  </div>
+</div>
+
+<div class="section" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <div class="section-title">Let's automate something</div>
+    <p style="font-size:15px; color:#333; margin-bottom:20px; max-width:520px;">Based in West Africa (GMT+1) — full working-hours overlap with UK and EU clients. Send a note about the task you want automated.</p>
+    <a class="btn mono" href="mailto:edompatrick24@gmail.com">✉ Email Me</a>
+  </div>
+</div>
+
+<footer>© 2026 Patrick Edom — Python Automation Specialist</footer>
 
 </body>
   </html>
