@@ -2,7 +2,7 @@
 
 Personal portfolio site for Patrick Edom, Python developer specializing in automation and scripting.
 
-🔗 Live site: https://yourusername.github.io
+🔗 Live site: https://patrickedom.github.io
 
 ## About
 This site showcases:
